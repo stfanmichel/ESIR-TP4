@@ -33,3 +33,19 @@ Ceci vous permettra également de vous y retrouver lorsque le correctif vous ser
   
 # Initialisation d'un projet
 
+Repartir de l'état final du TP3.
+
+(tag : TP4-ESIR-INIT)
+
+# STEP 1 : Configuration et permier test unitaire
+
+Nous allons installer les modules mocha et chai-http et réaliser le test unitaire d'un permier service REST.
+
+(tag : TP4-ESIR-STEP1)
+
+# STEP 2 : Configuration et permier test unitaire
+
+En autonomie, il s'agit de réaliser les tests unitaires de tous les autres service REST.
+
+(tag : TP4-ESIR-STEP2)
+
