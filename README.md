@@ -85,5 +85,7 @@ En autonomie, il s'agit de réaliser les tests unitaires de tous les autres serv
     it('should update a SINGLE user on /v1/users/<id> PATCH')
     it('should delete a SINGLE user on /v1/users/<id> DELETE')
 
+Remarque : vos tests vous remontrons peut être des bugs, qu'il vous faudra bien évidemment corriger...
+
 (tag : TP4-ESIR-STEP2)
 
