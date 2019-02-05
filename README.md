@@ -19,6 +19,7 @@ Nous allons lui ajouter des tests unitaires, un peu de sécurité et une optimis
 
   - Outillage (npm, node, git, curl, postman, ab, etc.) : https://slides.com/stephmichel/deck-4#/
   - Express : Le cours sur les tests unitaires et de charges de Benoît. 
+  - tests unitaires avec mocha et chai : https://mherman.org/blog/testing-node-js-with-mocha-and-chai/
   
 ## Modules node utilisés
   - express : https://www.npmjs.com/package/express
