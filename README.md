@@ -42,11 +42,48 @@ Repartir de l'état final du TP3.
 
 Nous allons installer les modules mocha et chai-http et réaliser le test unitaire d'un permier service REST.
 
+Modifier le package.json afin d'y ajouter le script de lancement des tests avec mocha :
+
+    "test": "mocha --watch"
+
+Créer un répertoire test et à l'intérieur, créer un fichier de test unitaire de users-v1.js. On pourra par exemple l'appeler users-v1-test.js.
+
+Chai-http prend en entrée une application web, dans notre cas l'application express (c'est à dire la variable app dans app.js).
+
+Il va donc falloir faire un peu de refactoring afin de rendre accessible l'objet app de app.js (en en faisant un module).
+
+Il faudra externaliser le app.listen() qui est pour le moment réalisé dans app.js dans un nouveau fichier (server.js par exemple) qui deviendra le nouveau point d'entrée de l'application. Ceci impliquera quelques mises à jours dans package.config pour s'assurer que le serveur fonctionne encore.
+
+Après cette étape de refactoring vous aurez :
+  - un fichier module app.js qui instancie un express, mais qui ne démarre pas le serveur (il n'appelle pas listen()).
+  - un fichier server.js qui utilise le module app.js et qui lance le serveur sur un port spécifique.  
+
+Vérifier que votre serveur fonctionne encore avec la commande : npm start
+
+Il vous reste à modifier le fichier users-v1-test.js afin d'y importer les modules app.js, chai et chai-http.
+Coder maintenant le test du service REST /v1/users :
+
+    const chai = require('chai')
+    const chaiHttp = require('chai-http')
+    const {app} = require('../app')
+    chai.use(chaiHttp)
+
+    describe('Users tests', () => {
+      it('should list ALL users on /v1/users GET', (done) => {
+        // TODO
+      })
+    })
+
 (tag : TP4-ESIR-STEP1)
 
-# STEP 2 : Configuration et permier test unitaire
+# STEP 2 : Réaliser les autres tests unitaires
 
 En autonomie, il s'agit de réaliser les tests unitaires de tous les autres service REST.
+
+    it('should list a SINGLE user on /v1/users/<id> GET')
+    it('should add a SINGLE user on /v1/users POST')
+    it('should update a SINGLE user on /v1/users/<id> PATCH')
+    it('should delete a SINGLE user on /v1/users/<id> DELETE')
 
 (tag : TP4-ESIR-STEP2)
 
