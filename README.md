@@ -89,3 +89,10 @@ Remarque : vos tests vous remontrons peut être des bugs, qu'il vous faudra bien
 
 (tag : TP4-ESIR-STEP2)
 
+# STEP 3 : Tester les failles de son server web avec OWASP ZAP (Zed Attack Project)
+
+En autonomie, il s'agit de tester son application avec l'outil ZAP de la fondation OWASP.
+
+Après cette analyse des failles, il s'agit de trouver les parades...
+
+(tag : TP4-ESIR-STEP3)
