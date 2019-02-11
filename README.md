@@ -95,4 +95,6 @@ En autonomie, il s'agit de tester son application avec l'outil ZAP de la fondati
 
 Après cette analyse des failles, il s'agit de trouver les parades...
 
+Aide : un bon casque fera l'affaire
+
 (tag : TP4-ESIR-STEP3)
