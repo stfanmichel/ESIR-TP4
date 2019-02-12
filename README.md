@@ -95,7 +95,7 @@ En autonomie, il s'agit de tester son application avec l'outil ZAP de la fondati
 
 Après cette analyse des failles, il s'agit de trouver les parades...
 
-[Vous devriez obtenir quelque chose comme...](ZAP.png)
+[Vous devriez obtenir quelque chose comme...](zap.PNG)
 
 Aide : un bon casque fera l'affaire
 
