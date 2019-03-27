@@ -14,14 +14,16 @@ Nous allons lui ajouter des tests unitaires, un peu de sécurité et une optimis
 - Express
 - REST / CRUD
 - Tests unitaires
-- Optimisation (pattern cache)
 - Sécurisation des applications web
+- Tests de performance
 
 ## Lien utiles :
 
 - Outillage (npm, node, git, curl, postman, ab, etc.) : https://slides.com/stephmichel/deck-4#/
 - Express : Le cours sur les tests unitaires et de charges de Benoît.
 - tests unitaires avec mocha et chai : https://mherman.org/blog/testing-node-js-with-mocha-and-chai/
+- ab : https://slides.com/stephmichel/deck-4#/10
+- zap : https://slides.com/stephmichel/deck-4#/12
 
 ## Modules node utilisés
 
@@ -41,7 +43,7 @@ Repartir de l'état final du TP3.
 
 (tag : **TP4-ESIR-INIT**)
 
-# STEP 1 : Configuration et permier test unitaire
+# STEP 1 : Configuration et premier test unitaire
 
 Nous allons installer les modules mocha et chai-http et réaliser le test unitaire d'un permier service REST.
 
@@ -55,7 +57,29 @@ Chai-http prend en entrée une application web, dans notre cas l'application exp
 
 Il va donc falloir faire un peu de refactoring afin de rendre accessible l'objet app de app.js (en en faisant un module).
 
-Il faudra externaliser le app.listen() qui est pour le moment réalisé dans app.js dans un nouveau fichier (server.js par exemple) qui deviendra le nouveau point d'entrée de l'application. Ceci impliquera quelques mises à jours dans package.config pour s'assurer que le serveur fonctionne encore.
+A la fin du fichier app.js nous allons retrouvé un export de l'app :
+
+    ...
+    // For unit tests
+    exports.app = app
+
+Il faudra déplacé le app.listen() qui est pour le moment réalisé dans app.js dans un nouveau fichier (server.js par exemple) qui deviendra le nouveau point d'entrée de l'application.
+
+server.js ressemblera à ceci :
+
+    // Import du nouveau module app
+    const {app} = require('./app')
+
+    // Lancement du server (qui était auparavant dans app.js)
+    const port = process.env.PORT || '3000'
+    app.listen(port)
+
+Ceci impliquera une mise à jour dans package.json pour s'assurer que le serveur fonctionne encore.
+
+    {
+      ...
+      "main": "server.js",
+      ...
 
 Après cette étape de refactoring vous aurez :
 
@@ -95,7 +119,7 @@ Remarque : vos tests vous remontrons peut être des bugs, qu'il vous faudra bien
 
 # STEP 3 : Tester les failles de son server web avec OWASP ZAP (Zed Attack Project)
 
-En autonomie, il s'agit de tester son application avec l'outil ZAP de la fondation OWASP.
+En autonomie, il s'agit de tester son application avec l'outil [ZAP](https://slides.com/stephmichel/deck-4#/12) de la fondation OWASP.
 
 Après cette analyse des failles, il s'agit de trouver les parades...
 
@@ -110,3 +134,7 @@ Aide : un bon casque fera l'affaire
 @import "zap-helmet.PNG"
 
 (tag : **TP4-ESIR-STEP3**)
+
+# STEP 4 : Tests de performance
+
+Réaliser des tests de performance (de charge) avec l'outil ab sur l'ensemble de votre API. Faites varier le nombre de clients pour analyser l'évolution des temps de réponse.
