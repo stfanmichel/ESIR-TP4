@@ -24,6 +24,7 @@ Nous allons lui ajouter des tests unitaires, un peu de sécurité et une optimis
 - tests unitaires avec mocha et chai : https://mherman.org/blog/testing-node-js-with-mocha-and-chai/
 - ab : https://slides.com/stephmichel/deck-4#/10
 - zap : https://slides.com/stephmichel/deck-4#/12
+- httpstat : https://slides.com/stephmichel/deck-4#/8
 
 ## Modules node utilisés
 
@@ -138,3 +139,7 @@ Aide : un bon casque fera l'affaire
 # STEP 4 : Tests de performance
 
 Réaliser des tests de performance (de charge) avec l'outil ab sur l'ensemble de votre API. Faites varier le nombre de clients pour analyser l'évolution des temps de réponse.
+
+# BONUS : httpstat
+
+Plutôt que d'utiliser curl, essayer le module [httpstat](https://slides.com/stephmichel/deck-4#/8) pour analyser les temps de réponse de vos requêtes HTTP.
