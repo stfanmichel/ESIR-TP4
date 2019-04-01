@@ -96,6 +96,7 @@ Coder maintenant le test du service REST /v1/users :
     const chaiHttp = require('chai-http')
     const {app} = require('../app')
     chai.use(chaiHttp)
+    chai.should()   // Pour pouvoir utiliser should
 
     describe('Users tests', () => {
       it('should list ALL users on /v1/users GET', (done) => {
